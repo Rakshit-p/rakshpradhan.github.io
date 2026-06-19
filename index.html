@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rakshit Pradhan</title>
+<meta name="description" content="Rakshit Pradhan is an undergraduate at Purdue University studying physics, working on machine learning for perception and robotics." />
+<meta property="og:title" content="Rakshit Pradhan" />
+<meta property="og:description" content="Machine learning for perception and robotics — teaching machines to see, grasp, and navigate." />
+<meta property="og:type" content="website" />
+
+<!-- apply saved theme before paint to avoid flash -->
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+
+<style>
+  /* ---- themes ---- */
+  [data-theme="dark"]{
+    --bg:#121211;
+    --text:#ece9e1;
+    --text-2:#9d9a92;
+    --faint:#6c6a63;
+    --line:#33312d;
+  }
+  [data-theme="light"]{
+    --bg:#f0eee6;
+    --text:#1f1e1d;
+    --text-2:#5e5d59;
+    --faint:#87867f;
+    --line:#d9d7cd;
+  }
+  [data-theme="dark"] ::selection{ background:#ece9e1; color:#121211; }
+  [data-theme="light"] ::selection{ background:#1f1e1d; color:#f0eee6; }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Newsreader","Times New Roman",serif;
+    font-optical-sizing:auto;
+    font-size:1.25rem;
+    font-weight:400;
+    line-height:1.6;
+    letter-spacing:0;
+    -webkit-font-smoothing:antialiased;
+    transition:background-color .25s ease, color .25s ease;
+  }
+
+  .wrap{
+    max-width:41rem;
+    margin:0 auto;
+    padding:4.5rem 1.6rem 6rem;
+  }
+
+  a{
+    color:var(--text);
+    text-decoration:underline;
+    text-decoration-thickness:0.07em;
+    text-underline-offset:0.12em;
+    text-decoration-color:var(--faint);
+    transition:text-decoration-color .18s ease, color .18s ease;
+  }
+  a:hover{ color:var(--text-2); text-decoration-color:var(--text-2); }
+
+  /* ---- top row: name + resume + theme toggle ---- */
+  .topline{
+    display:flex;align-items:baseline;justify-content:space-between;
+    gap:1rem;margin-bottom:2.4rem;
+  }
+  h1{
+    font-size:2.05rem;
+    font-weight:500;
+    letter-spacing:-0.012em;
+    line-height:1.1;
+    margin:0;
+  }
+  .top-right{ display:flex;align-items:center;gap:1.1rem;flex-shrink:0; }
+  .top-right a{
+    font-size:1rem;
+    color:var(--text-2);
+    text-decoration-color:var(--line);
+    white-space:nowrap;
+  }
+  .top-right a:hover{ color:var(--text); text-decoration-color:var(--text-2); }
+
+  .theme-toggle{
+    background:none;border:none;padding:4px;margin:0;cursor:pointer;
+    color:var(--text-2);line-height:0;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+    transition:color .18s ease;
+  }
+  .theme-toggle:hover{ color:var(--text); }
+  .theme-toggle svg{ width:18px;height:18px; }
+  .icon-sun,.icon-moon{ display:none; }
+  [data-theme="dark"] .icon-sun{ display:block; }
+  [data-theme="light"] .icon-moon{ display:block; }
+
+  /* ---- intro ---- */
+  .intro{ margin:0 0 1.1rem; max-width:38rem; }
+  .intro .more-text{ display:none; }
+  .intro.open .more-text{ display:inline; }
+  .intro.open .more-toggle{ display:none; }
+  .more-toggle{
+    background:none;border:none;padding:0;margin:0;cursor:pointer;
+    font:inherit;color:var(--text);
+    text-decoration:underline;text-decoration-thickness:0.07em;
+    text-underline-offset:0.12em;text-decoration-color:var(--faint);
+  }
+  .more-toggle:hover{ color:var(--text-2); text-decoration-color:var(--text-2); }
+
+  /* ---- sections ---- */
+  h2{
+    font-size:1.35rem;
+    font-weight:500;
+    letter-spacing:-0.005em;
+    margin:3.2rem 0 1.1rem;
+  }
+
+  .entry{ margin:0 0 1.7rem; }
+  .entry:last-child{ margin-bottom:0; }
+  .entry .title{ font-weight:500; }
+  .entry .meta{
+    font-style:italic;
+    color:var(--text-2);
+    font-size:1.05rem;
+  }
+  .entry .desc{ margin-top:0.15rem; }
+  .entry .desc .hl{ font-style:italic; }
+  .entry .title a{ font-weight:500; }
+
+  /* ---- skills / list rows ---- */
+  .row{ margin:0 0 0.5rem; }
+  .row:last-child{ margin-bottom:0; }
+  .row .k{ color:var(--text-2); font-style:italic; }
+  .row .k::after{ content:" — "; font-style:normal; color:var(--faint); }
+
+  /* ---- compact link lists ---- */
+  .links{ margin:0; }
+  .links .li{ margin:0 0 0.4rem; }
+  .links .li:last-child{ margin-bottom:0; }
+  .links .li .lk{ color:var(--text-2); font-style:italic; }
+  .links .li .lk::after{ content:" — "; font-style:normal; color:var(--faint); }
+
+  footer{
+    margin-top:4rem;
+    color:var(--text-2);
+    font-size:0.95rem;
+    font-style:italic;
+  }
+
+  :focus-visible{ outline:2px solid var(--text); outline-offset:3px; border-radius:2px; }
+
+  @media (prefers-reduced-motion:reduce){
+    body, a, .theme-toggle{ transition:none; }
+  }
+  @media (max-width:520px){
+    body{ font-size:1.18rem; }
+    h1{ font-size:1.8rem; }
+    .wrap{ padding:3.2rem 1.3rem 4.5rem; }
+    .topline{ flex-direction:column; gap:0.6rem; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+
+    <div class="topline">
+      <h1>Rakshit Pradhan</h1>
+      <nav class="top-right">
+        <a href="Rakshit_Pradhan_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4.2"/>
+            <path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6M18.7 18.7l-1.6-1.6M6.9 6.9 5.3 5.3"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 14.5A8 8 0 0 1 9.5 4 6.5 6.5 0 1 0 20 14.5Z"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <p class="intro" id="intro">
+      Rakshit Pradhan is an undergraduate at Purdue University studying physics with a minor in
+      computer science. He works on machine learning for perception and robotics — teaching machines
+      to see, grasp, and navigate the physical world.
+      <span class="more-text">
+        He currently researches robotic grasp prediction at Purdue's IDEAS Lab, building multimodal
+        vision models over RGB, depth, and segmentation inputs. Previously, he interned in growth
+        engineering at Wondercraft (YC&nbsp;S'22) and worked on model optimization at PerspectAI. His
+        background in physics keeps him close to the math; his computer science minor keeps the
+        pipelines clean.
+      </span>
+      <button class="more-toggle" id="moreBtn" aria-expanded="false" aria-controls="intro">More</button>
+    </p>
+
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="title">Undergraduate Machine Learning Researcher</div>
+      <div class="meta">IDEAS Lab, Purdue University · 2025–present</div>
+      <div class="desc">
+        Training and evaluating MultiMAE- and GR-ConvNet-based vision models on the Jacquard dataset
+        across RGB, depth, and segmentation modalities. LoRA fine-tuning and multimodal feature fusion
+        lifted grasp prediction from <span class="hl">10% to 52% IoU</span>.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="title">Undergraduate Researcher</div>
+      <div class="meta">Purdue Vertically Integrated Projects · Advisor: Amy Reibman · 2025</div>
+      <div class="desc">
+        Built computer-vision pipelines for cattle behavior analysis from monocular video, designing a
+        sparse-keypoint motion-evaluation method that reduced reliance on multi-camera setups and
+        improved estimation accuracy by 20–25%.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="title">Growth Engineering AI Intern</div>
+      <div class="meta">Wondercraft (YC S'22) · 2025</div>
+      <div class="desc">
+        Built analytics dashboards and internal Python/React tools in SQL and Metabase to track growth
+        and subscription metrics and analyze funnel behavior and conversion signals.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="title">Undergraduate Research Fellow</div>
+      <div class="meta">Purdue Industrial Engineering · 2025</div>
+      <div class="desc">
+        Studied full-body joint kinematics during lifting tasks using IMU-based motion capture,
+        training Random Forest and XGBoost models to predict load from motion for faster, non-intrusive
+        ergonomic assessment.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="title">Machine Learning Engineering Intern</div>
+      <div class="meta">PerspectAI, T-Hub · 2023</div>
+      <div class="desc">
+        Contributed to MirrorAI, an AI tool for personalized career insights — improving model
+        performance 15–20% through data preprocessing and implementing recent techniques from
+        academic papers.
+      </div>
+    </div>
+
+    <h2>Projects</h2>
+
+    <div class="entry">
+      <div class="title"><a href="https://github.com/Rakshit-p" target="_blank" rel="noopener">DriftDreamer</a></div>
+      <div class="meta">World models · Gazebo · PyTorch · 2026–present</div>
+      <div class="desc">
+        A world-model navigation system in Gazebo for warehouse robots: a PyTorch RSSM with CEM-MPC
+        drives a simulated tugbot along obstacle-aware routes, end to end from trajectory collection to
+        closed-loop testing.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="title"><a href="https://www.senca.net" target="_blank" rel="noopener">senca.net</a></div>
+      <div class="meta">React · Node · Express · MongoDB · 2024–present</div>
+      <div class="desc">
+        An AI content aggregator that curates and displays AI resources, with a React front-end, a
+        Node/Express/MongoDB backend, and Python web-scraping to automate data gathering.
+      </div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="row"><span class="k">Languages</span>Python, C, JavaScript, HTML/CSS</div>
+    <div class="row"><span class="k">ML &amp; Data</span>PyTorch, Scikit-learn, Pandas, NumPy, TensorBoard</div>
+    <div class="row"><span class="k">Web &amp; Tools</span>React, Node, Express, SQL, MongoDB, Metabase, CVAT</div>
+
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="title">Purdue University</div>
+      <div class="meta">B.S. Physics, Minor in Computer Science · West Lafayette, IN</div>
+      <div class="desc">Semester Honors.</div>
+    </div>
+
+    <h2>Conferences</h2>
+    <div class="links">
+      <div class="li"><span class="lk">Purdue Undergraduate Fall Expo</span>2025</div>
+      <div class="li"><span class="lk">Purdue Undergraduate Spring Expo</span>2025</div>
+    </div>
+
+    <h2>Contact</h2>
+    <div class="links">
+      <div class="li"><span class="lk">Email</span><a href="mailto:pradhar@purdue.edu">pradhar@purdue.edu</a></div>
+      <div class="li"><span class="lk">GitHub</span><a href="https://github.com/Rakshit-p" target="_blank" rel="noopener">github.com/Rakshit-p</a></div>
+      <div class="li"><span class="lk">Phone</span><a href="tel:+17654094790">765-409-4790</a></div>
+    </div>
+
+    <footer>© <span id="yr"></span> Rakshit Pradhan</footer>
+
+  </main>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    var intro = document.getElementById('intro');
+    var moreBtn = document.getElementById('moreBtn');
+    moreBtn.addEventListener('click', function(){
+      intro.classList.add('open');
+      moreBtn.setAttribute('aria-expanded','true');
+    });
+
+    var root = document.documentElement;
+    function setTheme(t){
+      root.setAttribute('data-theme', t);
+      try{ localStorage.setItem('theme', t); }catch(e){}
+    }
+    document.getElementById('themeToggle').addEventListener('click', function(){
+      var current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      setTheme(current === 'light' ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
